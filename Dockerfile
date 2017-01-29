@@ -2,6 +2,9 @@ FROM risingstack/alpine:3.4-v6.9.4-4.2.0
 
 WORKDIR "/home"
 
+# Install ssh client
+RUN apk update && apk add openssh-client
+
 # Install Docker
 RUN curl -L -o /tmp/docker.tgz https://get.docker.com/builds/Linux/x86_64/docker-1.12.3.tgz
 RUN tar -xz -C /tmp -f /tmp/docker.tgz
