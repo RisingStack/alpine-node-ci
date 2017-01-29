@@ -16,6 +16,8 @@ RUN rm -rf /var/cache/apk/*
 RUN curl -L -o /tmp/docker.tgz https://get.docker.com/builds/Linux/x86_64/docker-1.12.3.tgz
 RUN tar -xz -C /tmp -f /tmp/docker.tgz
 RUN mv /tmp/docker/docker* /usr/bin/
+RUN curl -L "https://github.com/docker/compose/releases/download/1.9.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/bin/docker-compose
+RUN chmod +x  /usr/bin/docker-compose
 
 # Install gcloud
 RUN curl -L -o google-cloud-sdk.zip https://dl.google.com/dl/cloudsdk/channels/rapid/google-cloud-sdk.zip
@@ -31,8 +33,9 @@ RUN google-cloud-sdk/install.sh\
 # Add gcloud and kubectl to PATH
 ENV PATH="/home/google-cloud-sdk/bin:${PATH}"
 
-# Disable gcloud check auto updater
+# Configure gcloud
 RUN gcloud config set component_manager/disable_update_check true
+RUN gcloud config set container/use_client_certificate True
 
 # Change working directory back
 WORKDIR "/src/node-app"
