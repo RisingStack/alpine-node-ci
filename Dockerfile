@@ -1,5 +1,9 @@
 FROM risingstack/alpine:3.4-v6.9.4-4.2.0
 
+# risingstack/alpine default NODE_ENV is production
+# It prevents installing npm dev dependencies
+ENV NODE_ENV=development
+
 WORKDIR "/home"
 
 # Install ssh client
