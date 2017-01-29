@@ -22,9 +22,9 @@ RUN google-cloud-sdk/install.sh\
 ENV PATH="/home/google-cloud-sdk/bin:${PATH}"
 
 # Disable gcloud check auto updater
-RUN gcloud config set component_manager/disable_update_check true 
+RUN gcloud config set component_manager/disable_update_check true
 
 # Change working directory back
 WORKDIR "/src/node-app"
 
-CMD ["bin/sh"]
+CMD ["/bin/sh"]
