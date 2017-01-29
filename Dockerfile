@@ -7,7 +7,10 @@ ENV NODE_ENV=development
 WORKDIR "/home"
 
 # Install ssh client
-RUN apk update && apk add openssh-client
+RUN apk update
+RUN apk add openssh-client
+RUN apk add bash
+RUN rm -rf /var/cache/apk/*
 
 # Install Docker
 RUN curl -L -o /tmp/docker.tgz https://get.docker.com/builds/Linux/x86_64/docker-1.12.3.tgz
