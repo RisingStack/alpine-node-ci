@@ -9,7 +9,14 @@ WORKDIR "/home"
 # Install ssh client
 RUN apk update
 RUN apk add openssh-client
+
+# Install bash
 RUN apk add bash
+
+# Install jq
+RUN apk add jq
+
+# Empty apk cache
 RUN rm -rf /var/cache/apk/*
 
 # Install Docker
