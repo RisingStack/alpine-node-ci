@@ -10,11 +10,8 @@ WORKDIR "/home"
 RUN apk update
 RUN apk add openssh-client
 
-# Install bash
-RUN apk add bash
-
-# Install jq
-RUN apk add jq
+# Install bash, tar and jq
+RUN apk add bash tar gzip jq
 
 # Empty apk cache
 RUN rm -rf /var/cache/apk/*
