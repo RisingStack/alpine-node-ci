@@ -1,4 +1,4 @@
-FROM risingstack/alpine:3.4-v6.9.4-4.2.0
+FROM risingstack/alpine:3.4-v8.1.4-4.5.1
 
 # risingstack/alpine default NODE_ENV is production
 # It prevents installing npm dev dependencies
